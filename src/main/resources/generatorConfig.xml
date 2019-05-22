@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!--导入属性配置 -->
+    <properties resource="generator.properties"></properties>
+    <classPathEntry location="${jdbc.driverLocation}"></classPathEntry>
+    <context id="context">
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.connectionURL}" userId="${jdbc.userId}"
+                        password="${jdbc.password}"/>
+        <javaModelGenerator targetPackage="${mybatis.model}"
+                            targetProject="src\main\java">
+            <property name="enableSubPackages" value="false"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="${mybatis.xml}"
+                         targetProject="src\main\resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <javaClientGenerator targetPackage="${mybatis.mapper}"
+                             targetProject="src\main\java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+
+        <table tableName="jd_item" domainObjectName="JDItem">
+            <generatedKey column="sid" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+    </context>
+</generatorConfiguration>
